@@ -1,15 +1,21 @@
-totalPrice = 0
+let cartItems = []
 
 function purchase(){
     console.log("purchase")
 }
 
+
 function remove(){
     console.log("remove")
 }
 
+
 function album1Add(){
-    console.log("album 1")
+    if(cartItems.includes("Album 1")){
+        return
+    }
+    cartItems.push("Album 1")
+
     let cartView = `
     <div class="cart-row">
         <div class="cart-item cart-column">
@@ -29,7 +35,11 @@ function album1Add(){
 
 
 function album2Add(){
-    console.log("album 2")
+    if(cartItems.includes("Album 2")){
+        return
+    }
+    cartItems.push("Album 2")
+
     let cartView = `
     <div class="cart-row">
         <div class="cart-item cart-column">
@@ -49,7 +59,11 @@ function album2Add(){
 
 
 function album3Add(){
-    console.log("album 3")
+    if(cartItems.includes("Album 3")){
+        return
+    }
+    cartItems.push("Album 3")
+
     let cartView = `
     <div class="cart-row">
         <div class="cart-item cart-column">
@@ -69,7 +83,11 @@ function album3Add(){
 
 
 function album4Add(){
-    console.log("album 4")
+    if(cartItems.includes("Album 4")){
+        return
+    }
+    cartItems.push("Album 4")
+
     let cartView = `
     <div class="cart-row">
         <div class="cart-item cart-column">
@@ -89,7 +107,11 @@ function album4Add(){
 
 
 function tShirtAdd(){
-    console.log("t-shirt")
+    if(cartItems.includes("T-Shirt")){
+        return
+    }
+    cartItems.push("T-Shirt")
+
     let cartView = `
     <div class="cart-row">
         <div class="cart-item cart-column">
@@ -108,7 +130,11 @@ function tShirtAdd(){
 }
 
 function coffeeCupAdd(){
-    console.log("coffee cup")
+    if(cartItems.includes("Coffee Cup")){
+        return
+    }
+    cartItems.push("Coffee Cup")
+
     let cartView = `
     <div class="cart-row">
         <div class="cart-item cart-column">
