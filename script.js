@@ -1,20 +1,15 @@
 let cartItems = []
-
-function purchase(){
-    console.log("purchase")
-}
-
-
-function remove(){
-    console.log("remove")
-}
+let totalPrice = 0
 
 
 function album1Add(){
     if(cartItems.includes("Album 1")){
+        alert("This item is already in your cart!")
         return
     }
     cartItems.push("Album 1")
+    let priceAdd = totalPrice + 6.99
+    priceAdd = document.getElementsByClassName("cart-total-price")
 
     let cartView = `
     <div class="cart-row">
@@ -25,7 +20,7 @@ function album1Add(){
         <span class="cart-price cart-column">$12.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="remove()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -36,6 +31,7 @@ function album1Add(){
 
 function album2Add(){
     if(cartItems.includes("Album 2")){
+        alert("This item is already in your cart!")
         return
     }
     cartItems.push("Album 2")
@@ -49,7 +45,7 @@ function album2Add(){
         <span class="cart-price cart-column">$14.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="remove()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -60,6 +56,7 @@ function album2Add(){
 
 function album3Add(){
     if(cartItems.includes("Album 3")){
+        alert("This item is already in your cart!")
         return
     }
     cartItems.push("Album 3")
@@ -73,7 +70,7 @@ function album3Add(){
         <span class="cart-price cart-column">$9.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="remove()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -84,6 +81,7 @@ function album3Add(){
 
 function album4Add(){
     if(cartItems.includes("Album 4")){
+        alert("This item is already in your cart!")
         return
     }
     cartItems.push("Album 4")
@@ -97,7 +95,7 @@ function album4Add(){
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="remove()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -108,6 +106,7 @@ function album4Add(){
 
 function tShirtAdd(){
     if(cartItems.includes("T-Shirt")){
+        alert("This item is already in your cart!")
         return
     }
     cartItems.push("T-Shirt")
@@ -121,7 +120,7 @@ function tShirtAdd(){
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="remove()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -129,11 +128,15 @@ function tShirtAdd(){
     document.getElementsByClassName("cart-items")[0].appendChild(div)
 }
 
+
 function coffeeCupAdd(){
     if(cartItems.includes("Coffee Cup")){
+        alert("This item is already in your cart!")
         return
     }
     cartItems.push("Coffee Cup")
+    
+    document.getElementsByClassName("cart-total-price").innerHTML
 
     let cartView = `
     <div class="cart-row">
@@ -144,10 +147,21 @@ function coffeeCupAdd(){
         <span class="cart-price cart-column">$6.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="remove()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+}
+
+
+function removeItem(){
+    console.log("remove")
+    let index = cartItems.indexOf(document.getElementsByClassName("cart-row"))
+}
+
+
+function purchase(){
+    console.log("purchase")
 }
