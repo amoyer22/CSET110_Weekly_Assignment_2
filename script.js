@@ -24,7 +24,7 @@ function album1Add(){
         <span class="cart-price cart-column">$12.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -49,7 +49,7 @@ function album2Add(){
         <span class="cart-price cart-column">$14.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -74,7 +74,7 @@ function album3Add(){
         <span class="cart-price cart-column">$9.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -99,7 +99,7 @@ function album4Add(){
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -124,7 +124,7 @@ function tShirtAdd(){
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
@@ -151,7 +151,7 @@ function coffeeCupAdd(){
         <span class="cart-price cart-column">$6.99</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1" min="1">
-            <button class="btn btn-danger" type="button" onclick="removeItem()">REMOVE</button>
+            <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
     let div = document.createElement("div")
