@@ -1,15 +1,19 @@
 let cartItems = []
-let totalPrice = 0
 
+function removeItem(buttonElement) {
+    let itemRow = buttonElement.closest(".cart-row");
+    let itemTitle = itemRow.querySelector(".cart-item-title").textContent;
+    cartItems = cartItems.filter(item => item !== itemTitle);
+    itemRow.remove();
+}
 
 function album1Add(){
     if(cartItems.includes("Album 1")){
-        alert("This item is already in your cart!")
+        alert("This item is already in cart!")
         return
     }
     cartItems.push("Album 1")
-    let priceAdd = totalPrice + 6.99
-    priceAdd = document.getElementsByClassName("cart-total-price")
+
 
     let cartView = `
     <div class="cart-row">
@@ -31,7 +35,7 @@ function album1Add(){
 
 function album2Add(){
     if(cartItems.includes("Album 2")){
-        alert("This item is already in your cart!")
+        alert("This item is already in cart!")
         return
     }
     cartItems.push("Album 2")
@@ -56,7 +60,7 @@ function album2Add(){
 
 function album3Add(){
     if(cartItems.includes("Album 3")){
-        alert("This item is already in your cart!")
+        alert("This item is already in cart!")
         return
     }
     cartItems.push("Album 3")
@@ -81,7 +85,7 @@ function album3Add(){
 
 function album4Add(){
     if(cartItems.includes("Album 4")){
-        alert("This item is already in your cart!")
+        alert("This item is already in cart!")
         return
     }
     cartItems.push("Album 4")
@@ -106,7 +110,7 @@ function album4Add(){
 
 function tShirtAdd(){
     if(cartItems.includes("T-Shirt")){
-        alert("This item is already in your cart!")
+        alert("This item is already in cart!")
         return
     }
     cartItems.push("T-Shirt")
@@ -131,7 +135,7 @@ function tShirtAdd(){
 
 function coffeeCupAdd(){
     if(cartItems.includes("Coffee Cup")){
-        alert("This item is already in your cart!")
+        alert("This item is already in cart!")
         return
     }
     cartItems.push("Coffee Cup")
@@ -153,15 +157,4 @@ function coffeeCupAdd(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
-}
-
-
-function removeItem(){
-    console.log("remove")
-    let index = cartItems.indexOf(document.getElementsByClassName("cart-row"))
-}
-
-
-function purchase(){
-    console.log("purchase")
 }
