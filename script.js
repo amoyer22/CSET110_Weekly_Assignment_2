@@ -1,6 +1,16 @@
 let cartItems = []
 
 
+function purchaseItems(){
+    document.getElementsByClassName("cart-total-price")[0].textContent = "$0.00"
+    cartItems = []
+    let cartContainer = document.getElementsByClassName("cart-items")[0]
+    while(cartContainer.firstChild){
+        cartContainer.removeChild(cartContainer.firstChild)
+    }
+}
+
+
 function totalPriceAdd(price){
     let currentTotalText = document.getElementsByClassName("cart-total-price")[0].textContent
     let currentTotal = currentTotalText.replace('$', '')
