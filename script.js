@@ -9,9 +9,35 @@ function totalPriceAdd(price){
 }
 
 
+function totalPriceSubtract(price){
+    let currentTotalText = document.getElementsByClassName("cart-total-price")[0].textContent
+    let currentTotal = currentTotalText.replace('$', '')
+    let newTotal = Number(currentTotal) - Number(price)
+    document.getElementsByClassName("cart-total-price")[0].textContent = `$${newTotal.toFixed(2)}`
+}
+
+
+function updateTotalPrice(itemPrice, quantityInput) {
+    let priceNumber = Number(itemPrice.replace('$', ''))
+    let quantity = Number(quantityInput.value)
+    let totalItemPrice = priceNumber * quantity
+
+    let previousQuantity = quantityInput.previousValue || 1
+    totalPriceSubtract(priceNumber * previousQuantity)
+    totalPriceAdd(totalItemPrice)
+
+    quantityInput.previousValue = quantity
+}
+
+
 function removeItem(buttonElement) {
     let itemRow = buttonElement.closest(".cart-row")
     let itemTitle = itemRow.querySelector(".cart-item-title").textContent
+    let itemPrice = itemRow.querySelector(".cart-price").textContent
+    let quantityInput = itemRow.querySelector(".cart-quantity-input")
+
+    totalPriceSubtract(Number(itemPrice.replace('$', '')) * Number(quantityInput.value))
+    
     cartItems = cartItems.filter(item => item !== itemTitle)
     itemRow.remove()
 }
@@ -32,7 +58,7 @@ function album1Add(){
         </div>
         <span class="cart-price cart-column">$12.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$12.99", this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -59,7 +85,7 @@ function album2Add(){
         </div>
         <span class="cart-price cart-column">$14.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$14.99", this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -86,7 +112,7 @@ function album3Add(){
         </div>
         <span class="cart-price cart-column">$9.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$9.99", this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -113,7 +139,7 @@ function album4Add(){
         </div>
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$19.99", this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -140,7 +166,7 @@ function tShirtAdd(){
         </div>
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$19.99", this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -167,7 +193,7 @@ function coffeeCupAdd(){
         </div>
         <span class="cart-price cart-column">$6.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$6.99", this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
