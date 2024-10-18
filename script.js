@@ -30,15 +30,19 @@ function totalPriceSubtract(price){
 function updateTotalPrice(itemPrice, quantityInput) {
     let priceNumber = Number(itemPrice.replace('$', ''))
     let quantity = Number(quantityInput.value)
-    let totalItemPrice = priceNumber * quantity
-
     let previousQuantity = quantityInput.previousValue || 1
-    totalPriceSubtract(priceNumber * previousQuantity)
-    totalPriceAdd(totalItemPrice)
+
+    let priceDifference = priceNumber * (quantity - previousQuantity)
+
+    if(priceDifference > 0){
+        totalPriceAdd(priceDifference)
+    }
+    else{
+        totalPriceSubtract(Math.abs(priceDifference))
+    }
 
     quantityInput.previousValue = quantity
 }
-
 
 function removeItem(buttonElement) {
     let itemRow = buttonElement.closest(".cart-row")
@@ -68,7 +72,7 @@ function album1Add(){
         </div>
         <span class="cart-price cart-column">$12.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$12.99", this)">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice('$12.99', this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -95,7 +99,7 @@ function album2Add(){
         </div>
         <span class="cart-price cart-column">$14.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$14.99", this)">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice('$14.99', this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -122,7 +126,7 @@ function album3Add(){
         </div>
         <span class="cart-price cart-column">$9.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$9.99", this)">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice('$9.99', this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -149,7 +153,7 @@ function album4Add(){
         </div>
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$19.99", this)">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice('$19.99', this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -176,7 +180,7 @@ function tShirtAdd(){
         </div>
         <span class="cart-price cart-column">$19.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$19.99", this)">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice('$19.99', this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
@@ -203,7 +207,7 @@ function coffeeCupAdd(){
         </div>
         <span class="cart-price cart-column">$6.99</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice("$6.99", this)">
+            <input class="cart-quantity-input" type="number" value="1" min="1" onchange="updateTotalPrice('$6.99', this)">
             <button class="btn btn-danger" type="button" onclick="removeItem(this)">REMOVE</button>
         </div>
     </div>`
