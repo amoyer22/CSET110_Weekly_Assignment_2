@@ -1,11 +1,21 @@
 let cartItems = []
 
-function removeItem(buttonElement) {
-    let itemRow = buttonElement.closest(".cart-row");
-    let itemTitle = itemRow.querySelector(".cart-item-title").textContent;
-    cartItems = cartItems.filter(item => item !== itemTitle);
-    itemRow.remove();
+
+function totalPriceAdd(price){
+    let currentTotalText = document.getElementsByClassName("cart-total-price")[0].textContent
+    let currentTotal = currentTotalText.replace('$', '')
+    let newTotal = Number(currentTotal) + Number(price)
+    document.getElementsByClassName("cart-total-price")[0].textContent = `$${newTotal.toFixed(2)}`
 }
+
+
+function removeItem(buttonElement) {
+    let itemRow = buttonElement.closest(".cart-row")
+    let itemTitle = itemRow.querySelector(".cart-item-title").textContent
+    cartItems = cartItems.filter(item => item !== itemTitle)
+    itemRow.remove()
+}
+
 
 function album1Add(){
     if(cartItems.includes("Album 1")){
@@ -13,7 +23,6 @@ function album1Add(){
         return
     }
     cartItems.push("Album 1")
-
 
     let cartView = `
     <div class="cart-row">
@@ -30,6 +39,8 @@ function album1Add(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+
+    totalPriceAdd("12.99")
 }
 
 
@@ -55,6 +66,8 @@ function album2Add(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+
+    totalPriceAdd("14.99")
 }
 
 
@@ -80,6 +93,8 @@ function album3Add(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+
+    totalPriceAdd("9.99")
 }
 
 
@@ -105,6 +120,8 @@ function album4Add(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+
+    totalPriceAdd("19.99")
 }
 
 
@@ -130,6 +147,8 @@ function tShirtAdd(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+
+    totalPriceAdd("19.99")
 }
 
 
@@ -139,8 +158,6 @@ function coffeeCupAdd(){
         return
     }
     cartItems.push("Coffee Cup")
-    
-    document.getElementsByClassName("cart-total-price").innerHTML
 
     let cartView = `
     <div class="cart-row">
@@ -157,4 +174,6 @@ function coffeeCupAdd(){
     let div = document.createElement("div")
     div.innerHTML = cartView
     document.getElementsByClassName("cart-items")[0].appendChild(div)
+
+    totalPriceAdd("6.99")
 }
